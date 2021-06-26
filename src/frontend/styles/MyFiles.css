@@ -14,6 +14,7 @@
     left: 0;
 }
 
+
 .mf-container{
     background-color: var(--background-color);
     padding: 0;
@@ -74,6 +75,7 @@
 }
 
 .mf-card {
+    font-family: 'Poppins';
 	background-color: var(--main-color);
 	border-radius: 20px;
     box-shadow: 0 0 8px var(--shadow-color);
@@ -82,13 +84,15 @@
 }
 
 .mf-summaries {
+    font-family: 'Poppins';
     height: 65%;
     padding-left: 2vh;
     padding-right: 2vh;
 }
 
-.mf-card > h1 {
-    font-size: small;
+.mf-h1 {
+    font-size: medium;
+    font-family: 'Poppins';
 }
 
 .mf-smallCard {
@@ -103,6 +107,7 @@
 }
 
 .mf-button{
+    font-family: 'Poppins';
     background: var(--primary-color);
     color: var(--main-color);
     border-radius: 10px;
@@ -114,4 +119,14 @@
 .mf-bottomLine{
     text-align: center;
     align-self: center;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url(../../res/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: local('Poppins'), url(../../res/fonts/Poppins/Poppins-Bold.ttf) format('truetype');
 }

@@ -16,6 +16,8 @@ import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
+import './frontend/styles/MyFiles.css'
+
 const drawerWidth = 240
 
 const useStyles = makeStyles({
@@ -79,8 +81,9 @@ const Main = () => (
 
 const Home = () => (
   <div class="mf-homeContainer">
-    <div className="home center">
-        <Container>
+    <div><SideBar/></div>
+    <div>
+        <Container className="mf-container">
         <Row>
           <Col>
             <HomePage></HomePage>
@@ -90,7 +93,7 @@ const Home = () => (
         </Row>
       </Container>
     </div>
-    <div><SideBar/></div>
+    
   </div>
 
   

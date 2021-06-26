@@ -77,7 +77,7 @@ const DocCards = () => {
             <div class="mf-summaries"><p>Summaries</p></div>
             <hr></hr>
             <div class="mf-smallCard">
-                <p>Assignment #</p>
+                <h1 class="mf-h1">Assignment #</h1>
                 <p>Date</p>
             </div>
             
