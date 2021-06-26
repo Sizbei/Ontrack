@@ -1,0 +1,32 @@
+:root {
+    --primary-color: #4856FD;
+    --secondary-color: #EDEEFF;
+    --background-color: #E5E5E5;
+    --main-color: white;
+    --shadow-color: rgba(236, 236, 236, 0.815);
+
+}
+
+.container{
+    background-color: var(--background-color);
+    width: 100vh;
+    height: 100vh;
+}
+
+.card {
+	background-color: var(--main-color);
+	border-radius: 20px;
+	padding: 40px;
+    box-shadow: var(--shadow-color);
+    max-width: 10vh;
+    height: 15vh;
+}
+
+.card > h1 {
+    font-size: small;
+}
+
+.hr {
+    color: var(--background-color);
+    width: fit-content;
+}
