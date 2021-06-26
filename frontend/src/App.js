@@ -6,6 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HomePage from "./frontend/MyFiles.js";
 import PageNotFoundPage from "./frontend/PageNotFound.js";
+import TextEditor from "./frontend/TextEditor";
+import { v4 as uuidV4 } from "uuid"
+
 
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
@@ -130,12 +133,13 @@ const PageNotFound = () => (
 );
 
 const Received = () => {
-  //let { fileId } = useParams();
-  //return(
-  //<div>
-  // <div className="link center">
-  // </div>
-  //</div>)
+  let { fileId } = uuidV4();
+  return(
+  <div>
+  <div className="link center">
+  <TextEditor />
+  </div>
+  </div>)
 };
 
 export default App;
