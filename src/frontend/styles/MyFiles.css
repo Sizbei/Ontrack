@@ -7,14 +7,14 @@
 
 }
 
-.homeContainer{
+.mf-homeContainer{
     display: table-row;
     position: absolute;
     width: 100%;
     left: 0;
 }
 
-.container{
+.mf-container{
     background-color: var(--background-color);
     padding: 0;
     margin: 0;
@@ -23,12 +23,12 @@
     padding-top: 3vh;
 }
 
-.logo{
+.mf-logo{
     width: 20vh;
     height: auto;
 }
 
-.sideBar{
+.mf-sideBar{
     padding-left: 5vh;
     padding-right: 10vh;
     padding-top: 5vh;
@@ -36,24 +36,24 @@
     flex-direction: column;
 }
 
-.down{
+.mf-down{
     display: flex;
     flex-direction: column;
 }
 
-.growTwo{
+.mf-growTwo{
     flex-grow: 2;
 }
 
-.textField {
+.mf-textField {
     height: max-content;
 }
 
-.growOne{
+.mf-growOne{
     flex-grow: 1;
 }
 
-.topbar {
+.mf-topbar {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -64,7 +64,7 @@
     
 }
 
-.cards{
+.mf-cards{
     display: grid;
     grid-gap: 5vh;
     grid-template-columns: repeat( auto-fit, 23vh);
@@ -73,7 +73,7 @@
     margin-top: 4vh;
 }
 
-.card {
+.mf-card {
 	background-color: var(--main-color);
 	border-radius: 20px;
     box-shadow: 0 0 8px var(--shadow-color);
@@ -81,28 +81,28 @@
     height:35vh;
 }
 
-.summaries {
+.mf-summaries {
     height: 65%;
     padding-left: 2vh;
     padding-right: 2vh;
 }
 
-.card > h1 {
+.mf-card > h1 {
     font-size: small;
 }
 
-.smallCard {
+.mf-smallCard {
     line-height: 10%;
     padding-left: 2vh;
     padding-right: 2vh;
 }
 
-.hr {
+.mf-hr {
     color: var(--background-color);
     width: fit-content;
 }
 
-.button{
+.mf-button{
     background: var(--primary-color);
     color: var(--main-color);
     border-radius: 10px;
@@ -111,7 +111,7 @@
     height: 100%;
 }
 
-.bottomLine{
+.mf-bottomLine{
     text-align: center;
     align-self: center;
 }

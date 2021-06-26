@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/styles.css'
+import './styles/MyFiles.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
@@ -39,10 +39,10 @@ const addIcon = (
 const MyFiles = () => {
     const classes = useStyles();
     return(
-        <div class="container">
-            <div class="topbar">
-                <h1 class="growTwo">My Files</h1>
-                <div class="growTwo"><SearchBar/></div>
+        <div class="mf-container">
+            <div class="mf-topbar">
+                <h1 class="mf-growTwo">My Files</h1>
+                <div class="mf-growTwo"><SearchBar/></div>
                 
                 <div>
                     <Button variant="contained"
@@ -54,7 +54,7 @@ const MyFiles = () => {
                 </div>
                 
             </div>
-            <div class="cards">
+            <div class="mf-cards">
                 <AddCard/>
                 <DocCards/>
                 <DocCards/>
@@ -66,7 +66,7 @@ const MyFiles = () => {
                 <DocCards/>
                 
             </div>
-            <p class="bottomLine">No more files! 🤓</p>
+            <p class="mf-bottomLine">No more files! 🤓</p>
         </div>
 
     );
@@ -74,10 +74,10 @@ const MyFiles = () => {
 
 const DocCards = () => {
     return(
-        <div class="card">
-            <div class="summaries"><p>Summaries</p></div>
+        <div class="mf-card">
+            <div class="mf-summaries"><p>Summaries</p></div>
             <hr></hr>
-            <div class="smallCard">
+            <div class="mf-smallCard">
                 <p>Assignment #</p>
                 <p>Date</p>
             </div>

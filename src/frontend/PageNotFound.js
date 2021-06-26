@@ -1,6 +1,6 @@
 
 
-const ErrorPage = () => {
+const PageNotFound = () => {
     return (
       <div>
           <p>yeet</p>
@@ -8,5 +8,5 @@ const ErrorPage = () => {
     );
   };
   
-  export default ErrorPage;
+  export default PageNotFound;
   
