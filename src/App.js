@@ -33,7 +33,7 @@ const useStyles = makeStyles({
 })
 
 const App = () => (
-  <div class="homeContainer">
+  <div class="mf-homeContainer">
 
     <div><Main /></div>
   </div>
@@ -44,9 +44,9 @@ const SideBar = () => (
     className={useStyles.drawer}
     variant="permanent"
     anchor="left">
-    <div class="sideBar">
-    <img src={logo} alt="Ontrack" class="logo"/>
-      <div class="down">
+    <div class="mf-sideBar">
+    <img src={logo} alt="Ontrack" class="mf-logo"/>
+      <div class="mf-down">
         <ButtonStyled content="My files" iconSrc={<DescriptionOutlinedIcon/>}/>
         <ButtonStyled content="Account" iconSrc={<AccountCircleOutlinedIcon/>}/>
         <ButtonStyled content="Settings" iconSrc={<SettingsOutlinedIcon/>}/>
@@ -78,7 +78,7 @@ const Main = () => (
 );
 
 const Home = () => (
-  <div class="homeContainer">
+  <div class="mf-homeContainer">
     <div className="home center">
         <Container>
         <Row>

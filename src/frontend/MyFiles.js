@@ -87,7 +87,7 @@ const DocCards = () => {
 
 const AddCard = () => {
     return(
-        <div class="card bottomLine">
+        <div class="mf-card mf-bottomLine">
             <img src="./res/images/addFile.png"></img>
             <p>Create file</p>
         </div>
