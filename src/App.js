@@ -20,14 +20,20 @@ import './frontend/styles/MyFiles.css'
 
 const drawerWidth = 240
 
-const selectedTheme = createMuiTheme({ palette: {primary: '#EDEEFF'}})
+const selectedTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#EDEEFF',
+    }
+  }
+});
 
 const useStyles = makeStyles({
   drawer:{
     width: drawerWidth
   },
   sideButton:{
-    background: 'white',
+    color: 'primary',
     textAlign: 'left',
     alignContent: 'left',
     borderRadius: 10,
@@ -67,6 +73,7 @@ const ButtonStyled = (props) => {
     return(
       <MuiThemeProvider theme={selectedTheme}>
             <Button 
+              color='primary'
               startIcon={props.iconSrc}
               className={classes.selectedButton}>
               {props.content}
@@ -75,6 +82,8 @@ const ButtonStyled = (props) => {
   } else {
       return(
       <Button 
+      color='primary'
+      variant='raised'
         startIcon={props.iconSrc}
         className={classes.sideButton}>
         {props.content}
