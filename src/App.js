@@ -11,12 +11,22 @@ import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
+import { PlayCircleFilledWhite } from '@material-ui/icons';
+import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
 
 const drawerWidth = 240
 
 const useStyles = makeStyles({
   drawer:{
     width: drawerWidth
+  },
+  sideButton:{
+    background: 'white',
+    textAlign: 'left',
+    alignContent: 'left',
+    borderRadius: 10,
+    marginTop: 10,
+    marginBottom: 10
   }
 })
 
@@ -35,7 +45,7 @@ const SideBar = () => (
     <div class="sideBar">
     <img src={logo} alt="Ontrack" class="logo"/>
       <div class="down">
-        <Button>My files</Button>
+        <ButtonStyled content="My files" iconSrc={<DescriptionOutlinedIcon/>}/>
         <Button>Assignment</Button>
         <Button>Setting</Button>
       </div>
@@ -44,6 +54,16 @@ const SideBar = () => (
   </Drawer>
 )
 
+const ButtonStyled = (props) => {
+  const classes = useStyles();
+  return(
+  <Button 
+    startIcon={props.iconSrc}
+    className={classes.sideButton}
+>
+    {props.content}
+  </Button>);
+}
 
 const Main = () => (
   <BrowserRouter>
