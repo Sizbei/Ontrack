@@ -14,16 +14,6 @@
     left: 0;
 }
 
-.mf-searchbar{
-    border-radius: 10px;
-    position: absolute;
-    width: 334px;
-    height: 42px;
-    left: 795px;
-    top: 82px;
-
-    background: #FFFFFF;
-}
 
 .mf-container{
     background-color: var(--background-color);
@@ -48,6 +38,7 @@
 }
 
 .mf-down{
+    margin-top: 6vh;
     display: flex;
     flex-direction: column;
 }

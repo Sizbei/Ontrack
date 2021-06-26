@@ -1,0 +1,4 @@
+
+run
+
+nodemond server 
