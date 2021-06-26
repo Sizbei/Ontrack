@@ -1,35 +1,117 @@
 :root {
-    --primary-color: #4856FD;
+    --primary-color: #4856fd;
     --secondary-color: #EDEEFF;
     --background-color: #E5E5E5;
-    --main-color: white;
-    --shadow-color: rgba(236, 236, 236, 0.815);
+    --main-color: rgb(255, 255, 255);
+    --shadow-color: rgba(185, 185, 185, 0.815);
 
+}
+
+.homeContainer{
+    display: table-row;
+    position: absolute;
+    width: 100%;
+    left: 0;
 }
 
 .container{
     background-color: var(--background-color);
-    width: 100vh;
+    padding: 0;
+    margin: 0;
     height: 100vh;
+    padding-left: 18vh;
+    padding-top: 3vh;
+}
+
+.logo{
+    width: 20vh;
+    height: auto;
+}
+
+.sideBar{
+    padding-left: 5vh;
+    padding-right: 10vh;
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.down{
+    display: flex;
+    flex-direction: column;
+}
+
+.growTwo{
+    flex-grow: 2;
+}
+
+.textField {
+    height: max-content;
+}
+
+.growOne{
+    flex-grow: 1;
+}
+
+.topbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: min-content;
+    margin-right: 5%;
+    margin-left: 5%;
+    
+}
+
+.cards{
+    display: grid;
+    grid-gap: 5vh;
+    grid-template-columns: repeat( auto-fit, 23vh);
+    margin-left: 5vh;
+    margin-right: 5vh;
+    margin-top: 4vh;
 }
 
 .card {
 	background-color: var(--main-color);
 	border-radius: 20px;
-    box-shadow: var(--shadow-color);
-    max-width: 25vh;
+    box-shadow: 0 0 8px var(--shadow-color);
+    width: 25vh;
     height:35vh;
 }
 
-.card > summaries {
-    height: 75%;
+.summaries {
+    height: 65%;
+    padding-left: 2vh;
+    padding-right: 2vh;
 }
 
 .card > h1 {
     font-size: small;
 }
 
+.smallCard {
+    line-height: 10%;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
 .hr {
     color: var(--background-color);
     width: fit-content;
+}
+
+.button{
+    background: var(--primary-color);
+    color: var(--main-color);
+    border-radius: 10px;
+    padding-right: 2vh;
+    padding-left: 2vh;
+    height: 100%;
+}
+
+.bottomLine{
+    text-align: center;
+    align-self: center;
 }

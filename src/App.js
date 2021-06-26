@@ -7,12 +7,43 @@ import Col from "react-bootstrap/Col";
 import HomePage from "./frontend/MyFiles.js";
 import PageNotFoundPage from "./frontend/PageNotFound.js";
 
+import Drawer from '@material-ui/core/Drawer'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
+
+const drawerWidth = 240
+
+const useStyles = makeStyles({
+  drawer:{
+    width: drawerWidth
+  }
+})
+
 const App = () => (
-  <div className="app">
-    <img src={logo} alt="Ontrack" class="logo" />
-    <Main />
+  <div class="homeContainer">
+    <div><SideBar/></div>
+    <div><Main /></div>
   </div>
 );
+
+const SideBar = () => (
+  <Drawer
+    className={useStyles.drawer}
+    variant="permanent"
+    anchor="left">
+    <div class="sideBar">
+    <img src={logo} alt="Ontrack" class="logo"/>
+      <div class="down">
+        <Button>My files</Button>
+        <Button>Assignment</Button>
+        <Button>Setting</Button>
+      </div>
+      
+    </div>
+  </Drawer>
+)
+
 
 const Main = () => (
   <BrowserRouter>
