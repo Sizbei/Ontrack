@@ -64,7 +64,6 @@ const MyFiles = () => {
                 <DocCards/>
                 <DocCards/>
                 <DocCards/>
-                
             </div>
             <p class="mf-bottomLine">No more files! 🤓</p>
         </div>
@@ -89,7 +88,7 @@ const DocCards = () => {
 const AddCard = () => {
     return(
         <div class="card bottomLine">
-            <img src="./res/images/Toolbar/akar-icons_file.png"></img>
+            <img src="./res/images/addFile.png"></img>
             <p>Create file</p>
         </div>
     )
