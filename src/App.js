@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import { NavLink, Switch, Route, useParams } from "react-router-dom";
+import { Switch, Route, useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import HomePage from "./frontend/MyFiles.js";
 
 const App = () => (
   <div className="app">
@@ -22,8 +23,33 @@ const Main = () => (
 
 const Home = () => (
   <div className="home center">
- 
+     <Container>
+      <Row>
+        <Col>
+          <HomePage></HomePage>
+        </Col>
+        <Col>
+        
+        </Col>
+      </Row>
+    </Container>
   </div>
 );
+
+const PageNotFound = () => (
+  <div className="error">
+    
+    <p></p>
+  </div>
+);
+
+const Received = () => {
+  //let { fileId } = useParams();
+  //return(
+  //<div>
+  // <div className="link center">
+  // </div>
+  //</div>)
+};
 
 export default App;
