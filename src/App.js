@@ -9,7 +9,7 @@ import PageNotFoundPage from "./frontend/PageNotFound.js";
 
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { makeStyles, ThemeProvider, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import { PlayCircleFilledWhite } from '@material-ui/icons';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
@@ -19,6 +19,8 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import './frontend/styles/MyFiles.css'
 
 const drawerWidth = 240
+
+const selectedTheme = createMuiTheme({ palette: {primary: '#EDEEFF'}})
 
 const useStyles = makeStyles({
   drawer:{
@@ -30,7 +32,8 @@ const useStyles = makeStyles({
     alignContent: 'left',
     borderRadius: 10,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 30,
+    height: 50
   }
 })
 
@@ -49,7 +52,7 @@ const SideBar = () => (
     <div class="mf-sideBar">
     <img src={logo} alt="Ontrack" class="mf-logo"/>
       <div class="mf-down">
-        <ButtonStyled content="My files" iconSrc={<DescriptionOutlinedIcon/>}/>
+        <ButtonStyled content="My files" iconSrc={<DescriptionOutlinedIcon/>} selected='1' />
         <ButtonStyled content="Account" iconSrc={<AccountCircleOutlinedIcon/>}/>
         <ButtonStyled content="Settings" iconSrc={<SettingsOutlinedIcon/>}/>
       </div>
@@ -60,13 +63,24 @@ const SideBar = () => (
 
 const ButtonStyled = (props) => {
   const classes = useStyles();
-  return(
-  <Button 
-    startIcon={props.iconSrc}
-    className={classes.sideButton}
->
-    {props.content}
-  </Button>);
+  if(props.selected === 1) {
+    return(
+      <MuiThemeProvider theme={selectedTheme}>
+            <Button 
+              startIcon={props.iconSrc}
+              className={classes.selectedButton}>
+              {props.content}
+            </Button>);
+      </MuiThemeProvider>)
+  } else {
+      return(
+      <Button 
+        startIcon={props.iconSrc}
+        className={classes.sideButton}>
+        {props.content}
+      </Button>);
+  }
+
 }
 
 const Main = () => (

@@ -38,6 +38,7 @@
 }
 
 .mf-down{
+    margin-top: 6vh;
     display: flex;
     flex-direction: column;
 }
