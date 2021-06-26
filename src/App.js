@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Switch, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,11 +14,13 @@ const App = () => (
 );
 
 const Main = () => (
-  <Switch>
-    <Route exact path="/" component={Home}></Route>
-    <Route exact path="/404" component={PageNotFound}></Route>
-    <Route exact path="/receivedlink/:fileId" component={Received}></Route>
-  </Switch>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/404" component={PageNotFound}></Route>
+      <Route exact path="/receivedlink/:fileId" component={Received}></Route>
+    </Switch>
+  </BrowserRouter>
 );
 
 const Home = () => (
