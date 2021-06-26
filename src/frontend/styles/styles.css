@@ -16,10 +16,13 @@
 .card {
 	background-color: var(--main-color);
 	border-radius: 20px;
-	padding: 40px;
     box-shadow: var(--shadow-color);
-    max-width: 10vh;
-    height: 15vh;
+    max-width: 25vh;
+    height:35vh;
+}
+
+.card > summaries {
+    height: 75%;
 }
 
 .card > h1 {
