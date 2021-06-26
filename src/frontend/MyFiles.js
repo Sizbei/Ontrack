@@ -2,7 +2,7 @@ import React from 'react'
 import './styles/MyFiles.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import addFile from './res/images/addFile.png'
+import addFile from '../res/images/addFile.png'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
@@ -89,8 +89,10 @@ const DocCards = () => {
 const AddCard = () => {
     return(
         <div class="mf-card mf-bottomLine">
-            <img src={addFile} alt="addFile"/>
-            <p>Create file</p>
+            <div class = "mf-addFile">
+                <img src={addFile} alt="addFile"/>
+                <p>Create file</p>
+            </div>
         </div>
     )
 }
