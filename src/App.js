@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import logo from './res/images/Full_Logo.png';
 import './App.css';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Redirect, BrowserRouter, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HomePage from "./frontend/MyFiles.js";
+import PageNotFoundPage from "./frontend/PageNotFound.js";
 
 const App = () => (
   <div className="app">
@@ -17,8 +18,8 @@ const Main = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home}></Route>
-      <Route exact path="/404" component={PageNotFound}></Route>
-      <Route exact path="/receivedlink/:fileId" component={Received}></Route>
+      <Route exact path="/files/:fileId" component={Received}></Route>
+      <Route exact path="/*" component={PageNotFound}></Route>
     </Switch>
   </BrowserRouter>
 );
@@ -40,7 +41,7 @@ const Home = () => (
 
 const PageNotFound = () => (
   <div className="error">
-    
+    <PageNotFoundPage></PageNotFoundPage>
     <p></p>
   </div>
 );
