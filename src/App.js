@@ -13,6 +13,8 @@ import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/sty
 import Button from '@material-ui/core/Button';
 import { PlayCircleFilledWhite } from '@material-ui/icons';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 const drawerWidth = 240
 
@@ -32,7 +34,7 @@ const useStyles = makeStyles({
 
 const App = () => (
   <div class="homeContainer">
-    <div><SideBar/></div>
+
     <div><Main /></div>
   </div>
 );
@@ -46,8 +48,8 @@ const SideBar = () => (
     <img src={logo} alt="Ontrack" class="logo"/>
       <div class="down">
         <ButtonStyled content="My files" iconSrc={<DescriptionOutlinedIcon/>}/>
-        <Button>Assignment</Button>
-        <Button>Setting</Button>
+        <ButtonStyled content="Account" iconSrc={<AccountCircleOutlinedIcon/>}/>
+        <ButtonStyled content="Settings" iconSrc={<SettingsOutlinedIcon/>}/>
       </div>
       
     </div>
@@ -76,18 +78,22 @@ const Main = () => (
 );
 
 const Home = () => (
-  <div className="home center">
-     <Container>
-      <Row>
-        <Col>
-          <HomePage></HomePage>
-        </Col>
-        <Col>
-        
-        </Col>
-      </Row>
-    </Container>
+  <div class="homeContainer">
+    <div className="home center">
+        <Container>
+        <Row>
+          <Col>
+            <HomePage></HomePage>
+          </Col>
+          <Col>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+    <div><SideBar/></div>
   </div>
+
+  
 );
 
 const PageNotFound = () => (

@@ -45,9 +45,9 @@ const MyFiles = () => {
                 <div class="growTwo"><SearchBar/></div>
                 
                 <div>
-                    <Button variants="contrained"
+                    <Button variant="contained"
                     color="primary"
-                    startIcon={addIcon}
+                    endIcon={addIcon}
                     className={classes.button}
                     size="large">
                         CREATE</Button>
