@@ -69,8 +69,9 @@ const MyFiles = () => {
                         textAlign: 'left',
                         fontFamily: 'Poppins'
                       }}
+                    href = "/document/38516931"
                     onClick={() => {
-                        <href></href>
+                        <href>"/document/38516931"</href>
                       }}
                     >
                         Create file</Button>

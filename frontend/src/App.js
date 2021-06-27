@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HomePage from "./frontend/MyFiles.js";
 import PageNotFoundPage from "./frontend/PageNotFound.js";
-import TextEditor from "./frontend/TextEditor";
 import Document from "./frontend/Document";
 import { v4 as uuidV4 } from "uuid"
 
@@ -55,7 +54,7 @@ const useStyles = makeStyles({
  //   <div><Main /></div>
 const App = () => (
   <div class="mf-homeContainer">
-    <div><Document/></div>
+    <div><Main/></div>
 
   </div>
 );
@@ -117,7 +116,7 @@ const Main = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home}></Route>
-      <Route exact path="/files/:fileId" component={Received}></Route>
+      <Route exact path="/document/*" component={Received}></Route>
       <Route exact path="/*" component={PageNotFound}></Route>
     </Switch>
   </BrowserRouter>
@@ -166,13 +165,9 @@ const PageNotFound = () => (
 
 
 const Received = () => {
-  let { fileId } = uuidV4();
-  return(
-  <div>
-  <div class="link center">
-  <TextEditor />
-  </div>
-  </div>)
+
+  <Document />
+
 };
 
 export default App;
