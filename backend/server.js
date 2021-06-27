@@ -6,6 +6,11 @@ const Document = require("./Document")
 // Configures the environment so we can have it in the .env file
 require('dotenv').config();
 
+// Create express server, port
+const app = express();
+const port = process.env.PORT || 5000;
+
+
 // Cors middleware
 app.use(cors());
 app.use(express.json()); // Allow us to parse json

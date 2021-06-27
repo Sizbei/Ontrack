@@ -13,16 +13,17 @@ const client = new textToSpeech.TextToSpeechClient();
 
 let text = ''
 
-function getText(t) {
+export function getAudio(t) {
     text = t;
+    const request = {
+        input: {text: text},
+        voice: {languageCode: 'en-US', ssmlGender: 'FEMALE'},
+        audioConfig: {audioEncoding: 'MP3'},
+    };
+    const [response] = await client.synthesizeSpeech(request);
+    const writeFile = util.promisify(fs.writeFile);
+    await writeFile(outputFile, response.audioContent, 'binary');
+    console.log(`Audio content written to file: ${outputFile}`);
+    return outputFile;
 }
 
-const request = {
-  input: {text: text},
-  voice: {languageCode: 'en-US', ssmlGender: 'FEMALE'},
-  audioConfig: {audioEncoding: 'MP3'},
-};
-const [response] = await client.synthesizeSpeech(request);
-const writeFile = util.promisify(fs.writeFile);
-await writeFile(outputFile, response.audioContent, 'binary');
-console.log(`Audio content written to file: ${outputFile}`);

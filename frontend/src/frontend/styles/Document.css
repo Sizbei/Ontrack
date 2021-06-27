@@ -1,0 +1,54 @@
+
+.d-docContainer{
+    width: 75%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.d-back {
+    width: auto;
+    height: auto;
+}
+
+.d-center{
+    display: flex;
+    justify-content: center;
+}
+
+.d-para{
+    font-family: 'Poppins';
+    color: #707181;
+}
+
+.d-sidebar{
+    background-color: #E5E5E5;
+}
+
+.d-topbar{
+    width: auto;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.d-title{
+    font-family: 'Poppins';
+    width: auto;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    padding: 2vh;
+}
+
+.d-audio{
+    width: fit-content;
+    height: 40vh;
+    background-color: white;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url(../../res/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}

@@ -11,14 +11,12 @@ const TOOLBAR_OPTIONS = [
   [{ list: "ordered" }, { list: "bullet" }],
   ["bold", "italic", "underline"],
   [{ color: [] }, { background: [] }],
-  [{ script: "sub" }, { script: "super" }],
-  [{ align: [] }],
-  ["image", "blockquote", "code-block"],
-  ["clean"],
 ]
 
+const text = ''
+
 export default function TextEditor() {
-  const { id: documentId } = useParams()
+  // const { id: documentId } = useParams()
   const [socket, setSocket] = useState()
   const [quill, setQuill] = useState()
 
@@ -38,9 +36,10 @@ export default function TextEditor() {
       quill.setContents(document)
       quill.enable()
     })
-
+  },  [socket, quill])
+  /*
     socket.emit("get-document", documentId)
-  }, [socket, quill, documentId])
+  }, [socket, quill, documentId]) */
 
   useEffect(() => {
     if (socket == null || quill == null) return
@@ -82,6 +81,7 @@ export default function TextEditor() {
   }, [socket, quill])
 
   const wrapperRef = useCallback(wrapper => {
+    var text = ''
     if (wrapper == null) return
 
     wrapper.innerHTML = ""
@@ -91,9 +91,14 @@ export default function TextEditor() {
       theme: "snow",
       modules: { toolbar: TOOLBAR_OPTIONS },
     })
-    q.disable()
-    q.setText("Loading...")
+    text = q.getText(0, q.getLength());
+    //q.disable()
+    //q.setText("Loading...")
     setQuill(q)
   }, [])
   return <div className="container" ref={wrapperRef}></div>
+}
+
+export const getContent = () => {
+  return text;
 }

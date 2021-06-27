@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import HomePage from "./frontend/MyFiles.js";
 import PageNotFoundPage from "./frontend/PageNotFound.js";
 import TextEditor from "./frontend/TextEditor";
+import Document from "./frontend/Document";
 import { v4 as uuidV4 } from "uuid"
 
 import Drawer from '@material-ui/core/Drawer'
@@ -51,10 +52,11 @@ const useStyles = makeStyles({
     
   }
 })
-
+ //   <div><Main /></div>
 const App = () => (
   <div class="mf-homeContainer">
-    <div><Main /></div>
+    <div><Document/></div>
+
   </div>
 );
 
