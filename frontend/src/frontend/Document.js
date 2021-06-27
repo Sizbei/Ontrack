@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './styles/Document.css';
 import TextEditor from './TextEditor.js';
 import getContent from './TextEditor.js';
@@ -73,20 +73,24 @@ const ButtonStyled = (props) => {
     );
 }
 
-let showAudio = 0
-let showSummarize = 0
-
-function toggleAudio () {
-    console.log('toggled audio');
-    showAudio = 1;
-}
-
-function toggleSum  () {
-    console.log('toggled sum');
-    showSummarize = 1;
-}
-
 function Document() {
+    
+    const [displayAudio, setAudio] = React.useState(false);
+  
+    const handleAudio = () => {
+      setAudio(!displayAudio);
+    };
+
+    const [displaySum, setSum] = React.useState(false);
+  
+    const handleSum = () => {
+      setSum(!displaySum);
+    };
+
+    useEffect(() => {
+
+    }, [displayAudio, displaySum])
+
     return(
         <div class="d-main">
             <div class="d-docContainer">
@@ -108,9 +112,9 @@ function Document() {
                         <p class="d-docName">Untitled document</p> 
                     </div>
                     <div class="d-wrap">
-                        <ButtonStyled content="Listen to text" iconSrc={hear} clicked={toggleAudio}>
+                        <ButtonStyled content="Listen to text" iconSrc={hear} clicked={handleAudio}>
                     </ButtonStyled>
-                    <ButtonStyled content="Summarize" iconSrc={<NotesOutlinedIcon/>} clicked={toggleSum}></ButtonStyled>
+                    <ButtonStyled content="Summarize" iconSrc={<NotesOutlinedIcon/>} clicked={handleSum}></ButtonStyled>
                     <ButtonStyled content="Set a goal" iconSrc={<DateRangeOutlinedIcon/>}></ButtonStyled>
                     </div>
 
@@ -118,8 +122,8 @@ function Document() {
                 <TextEditor/>
             </div>
             <div class='d-sidebar'>
-                <AudioPlayer/>
-                <Summary/>
+                {displayAudio ? <AudioPlayer/> : null}
+                {displaySum ? <Summary/> : null}
             </div>
         </div>
     );
@@ -132,56 +136,38 @@ const AudioPlayer = () => {
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-    if(showAudio === 1) {
-        return(
-            <div class='d-audio' id="audiobox">
-                <ThemeProvider theme={theme}>
-                    <div><p>Listening now</p></div>
-                    <div>
-
-                    </div>
-                    <Slider value={value} onChange={handleChange}
-                        aria-labelledby="continuous-slider" />
-                    <div class='d-main d-space'>
-                        <IconButton color="primary">
-                            <FastRewindIcon/>
-                        </IconButton>
-                        <IconButton color="primary"
-                            onClick={playAudio}>
-                            <PlayCircleFilledIcon/>
-                        </IconButton>
-                        <IconButton color="primary">
-                            <FastForwardIcon/>
-                        </IconButton>
-                    </div>
-                </ThemeProvider>
-                
-
-            </div>
-        );
-    } else {
-        return(
-            <div></div>
-        );
-    }
-
+    return(
+        <div class='d-audio' id="audiobox">
+            <ThemeProvider theme={theme}>
+                <div><p>Listening now</p></div>
+                <Slider value={value} onChange={handleChange}
+                    aria-labelledby="continuous-slider" />
+                <div class='d-main d-space'>
+                    <IconButton color="primary">
+                        <FastRewindIcon/>
+                    </IconButton>
+                    <IconButton color="primary"
+                        onClick={playAudio}>
+                        <PlayCircleFilledIcon/>
+                    </IconButton>
+                    <IconButton color="primary">
+                        <FastForwardIcon/>
+                    </IconButton>
+                </div>
+            </ThemeProvider>
+        </div>
+    );
 }
 
 const Summary = () => {
-    if(showSummarize === 1) {
-        return (
-            <div class="d-audio" id="summarybox">
-                <p>
-                    Hackthons changing world by bringing people together. Recent Hackathons have shown great successes. 9 tips
-                    for hosting sucessful hackathons. Announce at least advance, hackathon specific tools..
-                </p>
-            </div>
-        );
-    } else {
-        return(
-            <div></div>
-        );
-    }
+    return (
+        <div class="d-audio" id="summarybox">
+            <p>
+                Hackthons changing world by bringing people together. Recent Hackathons have shown great successes. 9 tips
+                for hosting sucessful hackathons. Announce at least advance, hackathon specific tools..
+            </p>
+        </div>
+    );
 }
 
 let playing = 0;
