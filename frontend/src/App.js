@@ -64,9 +64,9 @@ const SideBar = () => (
     variant="permanent"
     anchor="left">
     <div class="mf-sideBar">
-    <img src={logo} alt="Ontrack" class="mf-logo"/>
+    <img href= "" src={logo} alt="Ontrack" class="mf-logo"/>
       <div class="mf-down">
-        <ButtonStyled content="My files" iconSrc={<DescriptionOutlinedIcon/>} selected='1' />
+        <ButtonStyled  href= "" content="My files" iconSrc={<DescriptionOutlinedIcon/>} selected='1' />
         <ButtonStyled content="Account" iconSrc={<AccountCircleOutlinedIcon/>}/>
         <ButtonStyled content="Settings" iconSrc={<SettingsOutlinedIcon/>}/>
       </div>
@@ -142,11 +142,26 @@ const Home = () => (
 );
 
 const PageNotFound = () => (
-  <div class="error">
-    <PageNotFoundPage></PageNotFoundPage>
-    <p></p>
+
+  <div class="mf-homeContainer">
+  <div><SideBar/></div>
+  <div>
+      <Container className="mf-container">
+      <Row>
+        <Col>
+        <PageNotFoundPage></PageNotFoundPage>
+        </Col>
+        <Col>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+
+  
+    
   </div>
 );
+
 
 const Received = () => {
   let { fileId } = uuidV4();
