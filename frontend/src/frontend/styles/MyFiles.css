@@ -90,10 +90,12 @@
 }
 
 .mf-summaries {
+    padding-top: 20px;
     font-family: 'Poppins';
     height: 65%;
-    padding-left: 2vh;
-    padding-right: 2vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    font-size: 14px;
 }
 
 .mf-h1 {
@@ -102,13 +104,15 @@
 }
 
 .mf-smallCard {
-    line-height: 10%;
-    padding-left: 2vh;
-    padding-right: 2vh;
+    font-family: 'Poppins';
+    padding-top: 17px;
+    line-height: 40%;
+    padding-left: 3vh;
+    padding-right: 3vh;
 }
 
 .mf-hr {
-    color: var(--background-color);
+    color: grey;
     width: fit-content;
 }
 
