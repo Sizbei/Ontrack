@@ -4,6 +4,10 @@
     flex-direction: row;
 }
 
+.d-space{
+    justify-content: space-between;
+}
+
 .d-docContainer{
     width: 75%;
     height: auto;
@@ -43,17 +47,18 @@
     display: flex;
     flex-direction: row;
     padding: 2vh;
+    justify-content:space-around;
 }
 
 .d-audio{
-    width: 50vh;
-    height: 40vh;
+    width: 40vh;
+    height: 25vh;
     background-color: white;
     border-radius: 20px;
     margin: 5vh;
-    text-align: center;
     justify-content: center;
-    padding: 5vh;
+    padding: 3vh;
+    font-family: 'Poppins';
 }
 
 @font-face {

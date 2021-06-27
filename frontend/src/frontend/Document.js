@@ -6,7 +6,7 @@ import getContent from './TextEditor.js';
 import backIcon from '../res/images/backArrow.png';
 import logo from '../res/images/Icon_Logo.png';
 
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/core/Slider';
 import IconButton from '@material-ui/core/IconButton';
@@ -27,7 +27,7 @@ const theme = createMuiTheme({
           secondary: {
             main: '#EDEEFF',
           },
-          greyed: {
+          default: {
               main: '#707181'
           },
     },
@@ -35,6 +35,13 @@ const theme = createMuiTheme({
         fontFamily: 'Poppins'
     }
   });
+
+  const useStyles = makeStyles({
+    root: {
+      width: 200,
+    },
+  });
+  
 
 const hear =(
     <HearingOutlinedIcon/>
@@ -65,9 +72,11 @@ function Document() {
         <div class="d-main">
             <div class="d-docContainer">
                 <div class='d-topbar d-flex'>
-                    <IconButton color="greyed">
-                        <ArrowBackIcon/>
-                    </IconButton>
+                    <ThemeProvider theme={theme}>
+                        <IconButton color="default">
+                            <ArrowBackIcon/>
+                        </IconButton>
+                    </ThemeProvider>
                     <div class="d-center"><p class="d-para">Back to files</p></div>
                 </div>
                 <div class="d-title">
@@ -86,25 +95,34 @@ function Document() {
 }
 
 const AudioPlayer = () => {
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
+  
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
     return(
         <div class='d-audio'>
-            <div><p>Listening now</p></div>
-            <Slider
-                defaultValue={20}
-                aria-labelledby="discrete-slider-custom"
-                step={100}
-            />
-            <div class='d-main'>
-                <IconButton color="primary">
-                    <FastRewindIcon/>
-                </IconButton>
-                <IconButton color="primary">
-                    <PlayCircleFilledIcon/>
-                </IconButton>
-                <IconButton color="primary">
-                    <FastForwardIcon/>
-                </IconButton>
-            </div>
+            <ThemeProvider theme={theme}>
+                <div><p>Listening now</p></div>
+                <div>
+
+                </div>
+                <Slider value={value} onChange={handleChange}
+                    aria-labelledby="continuous-slider" />
+                <div class='d-main d-space'>
+                    <IconButton color="primary">
+                        <FastRewindIcon/>
+                    </IconButton>
+                    <IconButton color="primary">
+                        <PlayCircleFilledIcon/>
+                    </IconButton>
+                    <IconButton color="primary">
+                        <FastForwardIcon/>
+                    </IconButton>
+                </div>
+            </ThemeProvider>
+            
 
         </div>
     );
