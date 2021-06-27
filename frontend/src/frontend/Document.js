@@ -19,6 +19,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import NotesOutlinedIcon from '@material-ui/icons/NotesOutlined';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 
+import sound from '../res/tts.mp3'
+import { MusicOffOutlined } from '@material-ui/icons';
+
 const outputFile = './';
 
 const theme = createMuiTheme({
@@ -62,12 +65,25 @@ const ButtonStyled = (props) => {
                     fontFamily: 'Poppins',
                     marginLeft: 10
                 }}
-                onClicked={props.clicked}>
+                onClick={props.clicked}>
                 {props.content}
             </Button>
         </div>
     </ThemeProvider>
     );
+}
+
+let showAudio = 0
+let showSummarize = 0
+
+function toggleAudio () {
+    console.log('toggled audio');
+    showAudio = 1;
+}
+
+function toggleSum  () {
+    console.log('toggled sum');
+    showSummarize = 1;
 }
 
 function Document() {
@@ -92,9 +108,9 @@ function Document() {
                         <p class="d-docName">Untitled document</p> 
                     </div>
                     <div class="d-wrap">
-                        <ButtonStyled content="Listen to text" iconSrc={hear} clicked={playAudio}>
+                        <ButtonStyled content="Listen to text" iconSrc={hear} clicked={toggleAudio}>
                     </ButtonStyled>
-                    <ButtonStyled content="Summarize" iconSrc={<NotesOutlinedIcon/>}></ButtonStyled>
+                    <ButtonStyled content="Summarize" iconSrc={<NotesOutlinedIcon/>} clicked={toggleSum}></ButtonStyled>
                     <ButtonStyled content="Set a goal" iconSrc={<DateRangeOutlinedIcon/>}></ButtonStyled>
                     </div>
 
@@ -103,6 +119,7 @@ function Document() {
             </div>
             <div class='d-sidebar'>
                 <AudioPlayer/>
+                <Summary/>
             </div>
         </div>
     );
@@ -115,34 +132,63 @@ const AudioPlayer = () => {
     const handleChange = (event, newValue) => {
       setValue(newValue);
     };
-    return(
-        <div class='d-audio'>
-            <ThemeProvider theme={theme}>
-                <div><p>Listening now</p></div>
-                <div>
+    if(showAudio === 1) {
+        return(
+            <div class='d-audio' id="audiobox">
+                <ThemeProvider theme={theme}>
+                    <div><p>Listening now</p></div>
+                    <div>
 
-                </div>
-                <Slider value={value} onChange={handleChange}
-                    aria-labelledby="continuous-slider" />
-                <div class='d-main d-space'>
-                    <IconButton color="primary">
-                        <FastRewindIcon/>
-                    </IconButton>
-                    <IconButton color="primary">
-                        <PlayCircleFilledIcon/>
-                    </IconButton>
-                    <IconButton color="primary">
-                        <FastForwardIcon/>
-                    </IconButton>
-                </div>
-            </ThemeProvider>
-            
+                    </div>
+                    <Slider value={value} onChange={handleChange}
+                        aria-labelledby="continuous-slider" />
+                    <div class='d-main d-space'>
+                        <IconButton color="primary">
+                            <FastRewindIcon/>
+                        </IconButton>
+                        <IconButton color="primary"
+                            onClick={playAudio}>
+                            <PlayCircleFilledIcon/>
+                        </IconButton>
+                        <IconButton color="primary">
+                            <FastForwardIcon/>
+                        </IconButton>
+                    </div>
+                </ThemeProvider>
+                
 
-        </div>
-    );
+            </div>
+        );
+    } else {
+        return(
+            <div></div>
+        );
+    }
+
 }
 
+const Summary = () => {
+    if(showSummarize === 1) {
+        return (
+            <div class="d-audio" id="summarybox">
+                <p>
+                    Hackthons changing world by bringing people together. Recent Hackathons have shown great successes. 9 tips
+                    for hosting sucessful hackathons. Announce at least advance, hackathon specific tools..
+                </p>
+            </div>
+        );
+    } else {
+        return(
+            <div></div>
+        );
+    }
+}
+
+let playing = 0;
+var music = new Audio(sound);
+
 const playAudio = () => {
+    /*
     const text = getContent();
     var synth = window.speechSynthesis;
     var utterThis = new SpeechSynthesisUtterance(text.value);
@@ -150,6 +196,16 @@ const playAudio = () => {
     utterThis.pitch = 1;
     utterThis.rate = 1;
     synth.speak(utterThis);
+    */
+   
+   if(playing === 0) {
+        music.play();
+        playing = 1;
+   } else {
+        music.pause();
+        playing = 0;
+   }
+    
 };
 
 export default Document
