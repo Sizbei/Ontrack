@@ -116,7 +116,7 @@ const Main = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Home}></Route>
-      <Route exact path="/document/*" component={Received}></Route>
+      <Route exact path="/document/38516931" component={Received}></Route>
       <Route exact path="/*" component={PageNotFound}></Route>
     </Switch>
   </BrowserRouter>
