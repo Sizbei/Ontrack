@@ -16,6 +16,8 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FastForwardIcon from '@material-ui/icons/FastForward';
 import FastRewindIcon from '@material-ui/icons/FastRewind';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import NotesOutlinedIcon from '@material-ui/icons/NotesOutlined';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 
 const outputFile = './';
 
@@ -57,7 +59,8 @@ const ButtonStyled = (props) => {
                 endIcon={props.iconSrc}
                 style={{
                     backgroundColor: 'white',
-                    fontFamily: 'Poppins'
+                    fontFamily: 'Poppins',
+                    marginLeft: 10
                 }}
                 onClicked={props.clicked}>
                 {props.content}
@@ -80,10 +83,17 @@ function Document() {
                     <div class="d-center"><p class="d-para">Back to files</p></div>
                 </div>
                 <div class="d-title">
-                    <img src={logo} class="d-back"></img>
-                    <p>Untitled document</p>
-                    <ButtonStyled content="Listen to text" iconSrc={hear} clicked={playAudio}>
+                    <div class="d-wrap">
+                        <img src={logo} class="d-back"></img>
+                        <p class="d-docName">Untitled document</p> 
+                    </div>
+                    <div class="d-wrap">
+                        <ButtonStyled content="Listen to text" iconSrc={hear} clicked={playAudio}>
                     </ButtonStyled>
+                    <ButtonStyled content="Summarize" iconSrc={<NotesOutlinedIcon/>}></ButtonStyled>
+                    <ButtonStyled content="Set a goal" iconSrc={<DateRangeOutlinedIcon/>}></ButtonStyled>
+                    </div>
+
                 </div>
                 <TextEditor/>
             </div>

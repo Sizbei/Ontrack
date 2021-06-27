@@ -17,6 +17,7 @@
 .d-back {
     width: auto;
     height: auto;
+    margin-right: 3vh;
 }
 
 .d-center{
@@ -34,7 +35,6 @@
 }
 
 .d-topbar{
-    width: auto;
     height: 5vh;
     display: flex;
     flex-direction: row;
@@ -50,6 +50,12 @@
     justify-content:space-around;
 }
 
+.d-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+
 .d-audio{
     width: 40vh;
     height: 25vh;
@@ -59,6 +65,10 @@
     justify-content: center;
     padding: 3vh;
     font-family: 'Poppins';
+}
+
+.d-docName {
+    text-align: center;
 }
 
 @font-face {
