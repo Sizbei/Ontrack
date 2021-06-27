@@ -9,10 +9,9 @@ import PageNotFoundPage from "./frontend/PageNotFound.js";
 import TextEditor from "./frontend/TextEditor";
 import { v4 as uuidV4 } from "uuid"
 
-
 import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles, ThemeProvider, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
+import { withStyles, makeStyles, ThemeProvider, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import { PlayCircleFilledWhite } from '@material-ui/icons';
 import DescriptionOutlinedIcon from '@material-ui/icons/DescriptionOutlined';
@@ -35,6 +34,9 @@ const theme = createMuiTheme({
 })
 
 const useStyles = makeStyles({
+  root: {
+    fontFamily: 'Poppins',
+  },
   drawer:{
     width: 30
   },
@@ -46,13 +48,12 @@ const useStyles = makeStyles({
     marginTop: 10,
     marginBottom: 30,
     height: 50,
-    fontFamily: 'Poppins',
+    
   }
 })
 
 const App = () => (
   <div class="mf-homeContainer">
-
     <div><Main /></div>
   </div>
 );
@@ -88,7 +89,15 @@ const ButtonStyled = (props) => {
       }}
         startIcon={props.iconSrc}
         className={classes.sideButton}
-        disableElevation='true'>
+        disableElevation={true}
+        onClick={() => {
+          <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+          </Switch>
+        </BrowserRouter>
+        }}
+        >
         {props.content}
       </Button>);
   } else {
@@ -133,7 +142,7 @@ const Home = () => (
 );
 
 const PageNotFound = () => (
-  <div className="error">
+  <div class="error">
     <PageNotFoundPage></PageNotFoundPage>
     <p></p>
   </div>
@@ -143,7 +152,7 @@ const Received = () => {
   let { fileId } = uuidV4();
   return(
   <div>
-  <div className="link center">
+  <div class="link center">
   <TextEditor />
   </div>
   </div>)

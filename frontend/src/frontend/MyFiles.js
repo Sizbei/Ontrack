@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import './styles/MyFiles.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+  } from "react-router-dom"
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import addFile from '../res/images/addFile.png'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { withStyles, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import searchBar from '../res/images/searchBar.png'
+import TextEditor from "./TextEditor.js";
 
 let r = document.querySelector(':root');
 let rs = getComputedStyle(r);
@@ -56,7 +63,15 @@ const MyFiles = () => {
                     endIcon={addIcon}
                     className={classes.button}
                     size="large"
-                    href="document.location='TextEditor.js'"
+                    style={{
+                        backgroundColor: '#4856FD',
+                        color: 'white',
+                        textAlign: 'left',
+                        fontFamily: 'Poppins'
+                      }}
+                    onClick={() => {
+                        <href></href>
+                      }}
                     >
                         Create file</Button>
                 </div>

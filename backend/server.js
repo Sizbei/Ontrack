@@ -1,5 +1,32 @@
+const express = require('express');
+const cors = require('cors');
 const mongoose = require("mongoose")
 const Document = require("./Document")
+
+// Configures the environment so we can have it in the .env file
+require('dotenv').config();
+
+// Cors middleware
+app.use(cors());
+app.use(express.json()); // Allow us to parse json
+// Server will send and receive json
+
+// database uri, get from mongodb from the dashboard
+// ATLAS_URI is the envionrment variable, we need to set it (backend/.env)
+const uri = process.env.ATLAS_URI;
+// The flags deal with mongodb
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+//mongoose starts the connection
+const connection = mongoose.connection;
+// once the connection is open, it will log that
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+})
+
+// Starts the server: listens to the port
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+})
 
 mongoose.connect("mongodb://localhost/google-docs-clone", {
   useNewUrlParser: true,
