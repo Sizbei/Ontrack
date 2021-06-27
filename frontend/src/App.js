@@ -165,9 +165,11 @@ const PageNotFound = () => (
 
 
 const Received = () => {
-
-  <Document />
-
+  return(
+    <div>
+      <Document />
+    </div>
+  );
 };
 
 export default App;

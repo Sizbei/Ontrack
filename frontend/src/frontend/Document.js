@@ -9,8 +9,13 @@ import logo from '../res/images/Icon_Logo.png';
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/core/Slider';
+import IconButton from '@material-ui/core/IconButton';
 
 import HearingOutlinedIcon from '@material-ui/icons/HearingOutlined';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import FastForwardIcon from '@material-ui/icons/FastForward';
+import FastRewindIcon from '@material-ui/icons/FastRewind';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const outputFile = './';
 
@@ -21,7 +26,10 @@ const theme = createMuiTheme({
           },
           secondary: {
             main: '#EDEEFF',
-          }
+          },
+          greyed: {
+              main: '#707181'
+          },
     },
     typography: {
         fontFamily: 'Poppins'
@@ -54,10 +62,12 @@ const ButtonStyled = (props) => {
 
 function Document() {
     return(
-        <div>
+        <div class="d-main">
             <div class="d-docContainer">
                 <div class='d-topbar d-flex'>
-                    <img src={backIcon} class="d-back"></img>
+                    <IconButton color="greyed">
+                        <ArrowBackIcon/>
+                    </IconButton>
                     <div class="d-center"><p class="d-para">Back to files</p></div>
                 </div>
                 <div class="d-title">
@@ -84,6 +94,18 @@ const AudioPlayer = () => {
                 aria-labelledby="discrete-slider-custom"
                 step={100}
             />
+            <div class='d-main'>
+                <IconButton color="primary">
+                    <FastRewindIcon/>
+                </IconButton>
+                <IconButton color="primary">
+                    <PlayCircleFilledIcon/>
+                </IconButton>
+                <IconButton color="primary">
+                    <FastForwardIcon/>
+                </IconButton>
+            </div>
+
         </div>
     );
 }

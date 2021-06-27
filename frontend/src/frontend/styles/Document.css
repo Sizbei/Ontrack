@@ -1,10 +1,13 @@
 
+.d-main{
+    display: flex;
+    flex-direction: row;
+}
+
 .d-docContainer{
     width: 75%;
     height: auto;
     background-color: white;
-    display: flex;
-    flex-direction: row;
 }
 
 .d-back {
@@ -43,9 +46,14 @@
 }
 
 .d-audio{
-    width: fit-content;
+    width: 50vh;
     height: 40vh;
     background-color: white;
+    border-radius: 20px;
+    margin: 5vh;
+    text-align: center;
+    justify-content: center;
+    padding: 5vh;
 }
 
 @font-face {
