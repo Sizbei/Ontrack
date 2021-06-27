@@ -3,7 +3,7 @@
     --secondary-color: #EDEEFF;
     --background-color: #E5E5E5;
     --main-color: rgb(255, 255, 255);
-    --shadow-color: rgba(185, 185, 185, 0.815);
+    --shadow-color: rgba(185, 185, 185, 0.918);
 
 }
 
@@ -72,6 +72,13 @@
     
 }
 
+.mf-date{
+    font-family: "Poppins-Light";
+    font-size: 16px;
+    line-height: 16px;
+    color: #707181;
+}
+
 .mf-cards{
     display: grid;
     grid-gap: 5vh;
@@ -85,9 +92,9 @@
     font-family: 'Poppins';
 	background-color: var(--main-color);
 	border-radius: 20px;
-    box-shadow: 0 0 8px var(--shadow-color);
     width: 28vh;
     height:37vh;
+    filter: drop-shadow(0px 2px 20px rgba(98, 101, 135, 0.1));
 }
 
 .mf-addFile{
@@ -97,7 +104,7 @@
 
 .mf-summaries {
     padding-top: 20px;
-    font-family: 'Poppins';
+    font-family: 'Poppins-Light';
     height: 65%;
     padding-left: 3vh;
     padding-right: 3vh;
@@ -105,7 +112,7 @@
 }
 
 .mf-h1 {
-    font-size: medium;
+    font-size: 20px;
     font-family: 'Poppins';
 }
 
@@ -118,7 +125,7 @@
 }
 
 .mf-hr {
-    color: grey;
+    border-top: 1px solid #E5E5E5;
     width: fit-content;
 }
 
@@ -155,4 +162,9 @@
 @font-face {
     font-family: 'Poppins-Bold';
     src: local('Poppins'), url(../../res/fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins-Light';
+    src: local('Poppins'), url(../../res/fonts/Poppins/Poppins-Light.ttf) format('truetype');
 }

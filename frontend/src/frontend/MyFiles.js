@@ -80,9 +80,19 @@ const MyFiles = () => {
             </div>
             <div class="mf-cards">
                 <AddCard/>
-                <DocCards/>
-                <DocCards/>
-                <DocCards/>
+                <DocCards 
+                    summary="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt."
+                    number="1"
+                    date="June 25, 2021"/>
+                <DocCards 
+                    summary="Ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+                    number="2"
+                    date="June 28, 2021"/>
+                <DocCards 
+                    summary="Est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco."
+                    number="4"
+                    date="June 32, 2021"/>
             </div>
             <p class="mf-bottomLine mf-topmarg">No more files! 🤓</p>
         </div>
@@ -90,14 +100,14 @@ const MyFiles = () => {
     );
 }
 
-const DocCards = () => {
+const DocCards = (props) => {
     return(
         <div class="mf-card">
-            <div class="mf-summaries"><p>Summaries</p></div>
+            <div class="mf-summaries"><p>{props.summary}</p></div>
             <hr></hr>
             <div class="mf-smallCard">
-                <h1 class="mf-h1">Assignment #</h1>
-                <p>Date</p>
+                <h1 class="mf-h1">Assignment {props.number}</h1>
+                <p class="mf-date">{props.date}</p>
             </div>
             
         </div>

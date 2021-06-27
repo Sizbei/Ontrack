@@ -76,7 +76,11 @@ function Document() {
             <div class="d-docContainer">
                 <div class='d-topbar d-flex'>
                     <ThemeProvider theme={theme}>
-                        <IconButton color="default">
+                        <IconButton color="default"
+                        href = "/"
+                        onClick={() => {
+                            <href>"/"</href>
+                          }}>
                             <ArrowBackIcon/>
                         </IconButton>
                     </ThemeProvider>
