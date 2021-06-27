@@ -21,28 +21,32 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 
 import './frontend/styles/MyFiles.css'
 
-const drawerWidth = 240
+const drawerWidth = 500
 
-const selectedTheme = createMuiTheme({
+const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: '#EDEEFF',
+    selected: {
+      main: '#4856fd',
     }
+  },
+  typography: {
+    fontFamily: 'Arial'
   }
-});
+})
 
 const useStyles = makeStyles({
   drawer:{
-    width: drawerWidth
+    width: 30
   },
   sideButton:{
-    color: 'primary',
+    color: 'black',
     textAlign: 'left',
     alignContent: 'left',
     borderRadius: 10,
     marginTop: 10,
     marginBottom: 30,
-    height: 50
+    height: 50,
+    fontFamily: 'Poppins',
   }
 })
 
@@ -72,21 +76,24 @@ const SideBar = () => (
 
 const ButtonStyled = (props) => {
   const classes = useStyles();
-  if(props.selected === 1) {
-    return(
-      <MuiThemeProvider theme={selectedTheme}>
-            <Button 
-              color='primary'
-              startIcon={props.iconSrc}
-              className={classes.selectedButton}>
-              {props.content}
-            </Button>);
-      </MuiThemeProvider>)
-  } else {
+  if(props.selected === '1') {
       return(
       <Button 
-      color='primary'
-      variant='raised'
+      variant='contained'
+      style={{
+        backgroundColor: '#EDEEFF',
+        color: 'black',
+        textAlign: 'left',
+        fontFamily: 'Poppins'
+      }}
+        startIcon={props.iconSrc}
+        className={classes.sideButton}
+        disableElevation='true'>
+        {props.content}
+      </Button>);
+  } else {
+    return(
+      <Button 
         startIcon={props.iconSrc}
         className={classes.sideButton}>
         {props.content}

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './styles/MyFiles.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import addFile from '../res/images/addFile.png'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import searchBar from '../res/images/searchBar.png'
 
 let r = document.querySelector(':root');
 let rs = getComputedStyle(r);
@@ -17,13 +18,17 @@ let rs = getComputedStyle(r);
       secondary: {
         main: '#EDEEFF',
       }
+    },
+    typography: {
+        fontFamily: 'Poppins',
+        fontSize: 60
     }
   })
 
   const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
-      borderRadius: "10px"
+      borderRadius: "10px",
     },
     input: {
       display: "none"
@@ -42,16 +47,18 @@ const MyFiles = () => {
     return(
         <div class="mf-container">
             <div class="mf-topbar">
-                <h1 class="mf-growTwo">My Files</h1>
-                <div class="mf-growTwo"><SearchBar/></div>
-                
-                <div>
+                <h1 class="mf-growTwo">My files</h1>
+                <div class="mf-growTwo"></div>
+                <div class="mf-growOne">
+                    <div class="alignright"><SearchBar/></div>
                     <Button variant="contained"
                     color="primary"
                     endIcon={addIcon}
                     className={classes.button}
-                    size="large">
-                        CREATE</Button>
+                    size="large"
+                    href="document.location='TextEditor.js'"
+                    >
+                        Create file</Button>
                 </div>
                 
             </div>
@@ -60,13 +67,8 @@ const MyFiles = () => {
                 <DocCards/>
                 <DocCards/>
                 <DocCards/>
-                <DocCards/>
-                <DocCards/>
-                <DocCards/>
-                <DocCards/>
-                <DocCards/>
             </div>
-            <p class="mf-bottomLine">No more files! 🤓</p>
+            <p class="mf-bottomLine mf-topmarg">No more files! 🤓</p>
         </div>
 
     );
@@ -99,15 +101,10 @@ const AddCard = () => {
 
 const SearchBar = () => {
     return (
-        <TextField
-            id="outlined-search"
-            label="Search field"
-            type="search"
-            fullWidth
-            placeholder="Search"
-            variant="filled"
-            className={useStyles.textfield}
-            />
+        <div class="alignright">
+            <img src={searchBar}></img>
+        </div>
+        
     )
 }
 

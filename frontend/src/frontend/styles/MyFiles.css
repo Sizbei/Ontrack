@@ -16,7 +16,6 @@
 
 
 .mf-container{
-    background-color: var(--background-color);
     padding: 0;
     margin: 0;
     height: 100%;
@@ -43,8 +42,13 @@
     flex-direction: column;
 }
 
+.h1{
+    font-family: 'Poppins';
+}
+
 .mf-growTwo{
-    flex-grow: 2;
+    text-align: left;
+    font-family: 'Poppins';
 }
 
 .mf-textField {
@@ -52,26 +56,28 @@
 }
 
 .mf-growOne{
-    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .mf-topbar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     height: min-content;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-right: 12vh;
+    margin-left: 8vh;
     
 }
 
 .mf-cards{
     display: grid;
     grid-gap: 5vh;
-    grid-template-columns: repeat( auto-fit, 23vh);
-    margin-left: 5vh;
-    margin-right: 5vh;
+    grid-template-columns: auto auto auto auto;
+    margin-left: 8vh;
+    margin-right: 8vh;
     margin-top: 4vh;
 }
 
@@ -80,8 +86,8 @@
 	background-color: var(--main-color);
 	border-radius: 20px;
     box-shadow: 0 0 8px var(--shadow-color);
-    width: 25vh;
-    height:35vh;
+    width: 28vh;
+    height:37vh;
 }
 
 .mf-addFile{
@@ -129,6 +135,16 @@
 .mf-bottomLine{
     text-align: center;
     align-self: center;
+}
+
+.mf-topmarg {
+    margin-top: 8vh;
+    font-family: 'Poppins';
+}
+
+.mf-alignright {
+    padding-right: 50px;
+    margin-right: 50px;
 }
 
 @font-face {
