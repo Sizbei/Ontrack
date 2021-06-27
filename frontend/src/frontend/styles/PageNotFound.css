@@ -1,0 +1,18 @@
+.pnf-error{
+    
+    margin-left: 25em;
+    margin-top:11em;
+    
+}
+
+.pnf-text{
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: local('Poppins'), url(../../res/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+}
